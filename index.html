@@ -17,22 +17,11 @@
 
 body{
     font-family:'Orbitron', sans-serif;
-    background: url("https://i.postimg.cc/PfKvf0mj/fondo.png") no-repeat center center fixed;
-    background-size: cover;
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+    url("https://i.postimg.cc/PfKvf0mj/fondo.png") no-repeat center center fixed;
+    background-size:cover;
     color:white;
     overflow-x:hidden;
-}
-
-/* Oscurecer fondo */
-body::after{
-    content:"";
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.65);
-    z-index:-1;
 }
 
 /* NAVBAR */
@@ -46,21 +35,23 @@ body::after{
     align-items:center;
     padding:20px 10%;
     background:rgba(0,0,0,0.4);
-    backdrop-filter:blur(10px);
+    backdrop-filter:blur(15px);
     transition:0.3s;
     z-index:1000;
 }
 
 .navbar.scrolled{
-    background:rgba(0,0,0,0.85);
-    box-shadow:0 0 20px #00ff99;
+    background:rgba(0,0,0,0.9);
+    box-shadow:0 0 25px #00ff99;
 }
 
 .logo{
     font-size:1.2rem;
     color:#00ff99;
-    text-shadow:0 0 10px #00ff99;
+    text-shadow:0 0 15px #00ff99;
 }
+
+/* LINKS */
 
 .nav-links{
     display:flex;
@@ -95,19 +86,18 @@ body::after{
 
 .hero h1{
     font-size:4rem;
-    text-shadow:0 0 25px #00ff99;
-    animation:fadeIn 1.5s ease;
+    text-shadow:0 0 30px #00ff99;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{ text-shadow:0 0 10px #00ff99;}
+    to{ text-shadow:0 0 30px #00ff99, 0 0 50px #00ff99;}
 }
 
 .hero p{
     margin-top:20px;
-    opacity:0.8;
-    animation:fadeIn 2s ease;
-}
-
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(20px);}
-    to{opacity:1; transform:translateY(0);}
+    opacity:0.85;
 }
 
 /* SECTIONS */
@@ -123,6 +113,8 @@ body::after{
     text-shadow:0 0 15px #00ff99;
 }
 
+/* CARDS */
+
 .cards{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -130,79 +122,81 @@ body::after{
 }
 
 .card{
-    background:rgba(0,0,0,0.6);
+    background:rgba(0,0,0,0.65);
     padding:30px;
     border-radius:15px;
-    border:1px solid rgba(0,255,153,0.3);
-    backdrop-filter:blur(10px);
-    transition:0.3s;
+    border:1px solid rgba(0,255,153,0.4);
+    backdrop-filter:blur(12px);
+    transition:0.4s;
 }
 
 .card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 0 25px #00ff99;
+    transform:translateY(-12px) scale(1.03);
+    box-shadow:0 0 30px #00ff99;
 }
 
 /* FOOTER */
 
 footer{
     text-align:center;
-    padding:40px;
-    opacity:0.6;
+    padding:50px;
+    background:rgba(0,0,0,0.8);
+    font-size:0.9rem;
+    opacity:0.8;
 }
 </style>
 </head>
 <body>
 
 <div class="navbar" id="navbar">
-    <div class="logo">🚀 Universo Studios</div>
+    <div class="logo">🚀 Uniiverso Studios 🚀</div>
     <div class="nav-links">
-        <a href="#plugins">Plugins</a>
-        <a href="https://discord.gg/TUSERVIDOR">Discord</a>
+        <a href="#plugins">PLUGINS</a>
+        <a href="https://discord.gg/K64wRgSkzp">DISCORD</a>
+        <a href="#">MY WORKS</a>
     </div>
 </div>
 
 <div class="hero">
     <h1>Minecraft Plugin Developer</h1>
-    <p>Plugins • Setups • Configs • Sistemas premium</p>
+    <p>Plugins • Setups • Configs • Premium Systems</p>
 </div>
 
 <div class="section" id="plugins">
-    <h2>🔥 Plugins Destacados</h2>
+    <h2>🔥 Featured Plugins</h2>
     <div class="cards">
 
         <div class="card">
             <h3>⚔️ ArcosKoth</h3>
-            <p>Sistema avanzado de KOTH competitivo con recompensas dinámicas.</p>
+            <p>Advanced competitive KOTH system with dynamic rewards.</p>
         </div>
 
         <div class="card">
             <h3>📢 ArcosBroadcast Pro</h3>
-            <p>Mensajes automáticos editables en tiempo real con animaciones.</p>
+            <p>Real-time editable automated messages with animations.</p>
         </div>
 
         <div class="card">
             <h3>🏹 ArcosCore</h3>
-            <p>Optimización PvP, eventos automáticos y estadísticas avanzadas.</p>
+            <p>PvP optimization, automated events, and advanced statistics.</p>
         </div>
 
     </div>
 </div>
 
 <div class="section">
-    <h2>💻 Sobre Mí</h2>
+    <h2>💻 About Me</h2>
     <div class="cards">
         <div class="card">
-            <p>I started from the very bottom, but I learned that I must not give up..</p>
-            <p>I was born in Mexico City but I am proud to be Ecuadorian..</p>
+            <p>I started from the very bottom, but I learned that I must not give up.</p>
+            <p>Proud to represent Ecuador 🇪🇨</p>
+            <p>I'm not perfect yet — but I always give my best.</p>
         </div>
     </div>
 </div>
 
 <footer>
-© 2026 Universo Studios — Minecraft Developer 
-    Uniiversos Studios no esta afilado con mojang los problemas deben ser 
-    atendidos por Uniiversos Studios y no por mojang
+© 2026 Uniiverso Studios — Not affiliated with Mojang or Minecraft.
 </footer>
 
 <script>
