@@ -15,30 +15,28 @@
     scroll-behavior:smooth;
 }
 
+/* ===============================
+   🎨 PEGA TU LINK AQUÍ ABAJO
+   =============================== */
+
 body{
     font-family:'Orbitron', sans-serif;
-    background:#0a0f1f;
+    background: url("https://i.postimg.cc/PfKvf0mj/fondo.png") no-repeat center center fixed;
+    background-size: cover;
     color:white;
     overflow-x:hidden;
 }
 
-/* Fondo animado */
-
-body::before{
+/* Oscurecer fondo para que se vea PRO */
+body::after{
     content:"";
     position:fixed;
-    width:200%;
-    height:200%;
-    background:radial-gradient(circle,#00ff99 1px,transparent 1px);
-    background-size:50px 50px;
-    animation:moveBg 40s linear infinite;
-    opacity:0.08;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.65);
     z-index:-1;
-}
-
-@keyframes moveBg{
-    from{transform:translate(0,0);}
-    to{transform:translate(-500px,-500px);}
 }
 
 /* HERO */
@@ -59,13 +57,15 @@ body::before{
 
 .hero p{
     margin-top:20px;
-    opacity:0.7;
+    opacity:0.8;
 }
 
 .buttons{
     margin-top:40px;
     display:flex;
     gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
 }
 
 .btn{
@@ -102,10 +102,10 @@ body::before{
 }
 
 .card{
-    background:rgba(255,255,255,0.05);
+    background:rgba(0,0,0,0.6);
     padding:30px;
     border-radius:15px;
-    border:1px solid rgba(0,255,153,0.2);
+    border:1px solid rgba(0,255,153,0.3);
     backdrop-filter:blur(10px);
     transition:0.3s;
 }
@@ -120,7 +120,7 @@ body::before{
 footer{
     text-align:center;
     padding:40px;
-    opacity:0.5;
+    opacity:0.6;
 }
 </style>
 </head>
