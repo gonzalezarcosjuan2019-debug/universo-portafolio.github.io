@@ -40,11 +40,6 @@ body{
     z-index:1000;
 }
 
-.navbar.scrolled{
-    background:rgba(0,0,0,0.95);
-    box-shadow:0 0 30px #00ffff;
-}
-
 .logo{
     font-size:1.2rem;
     color:#00ffff;
@@ -105,7 +100,7 @@ body{
     text-shadow:0 0 20px #00ffff;
 }
 
-/* CARDS GRID */
+/* GRID */
 
 .cards{
     display:grid;
@@ -113,12 +108,12 @@ body{
     gap:40px;
 }
 
-/* WORK CARD ULTRA PRO */
+/* WORK CARD */
 
 .work-card{
     background:rgba(0,0,0,0.6);
     border-radius:15px;
-    overflow:hidden; /* IMPORTANTE */
+    overflow:hidden;
     backdrop-filter:blur(20px);
     transition:0.4s;
     border:1px solid rgba(0,255,255,0.3);
@@ -129,15 +124,11 @@ body{
     box-shadow:0 0 40px #00ffff;
 }
 
-/* IMAGEN PEGADA ARRIBA */
-
 .work-card img{
     width:100%;
     height:auto;
     display:block;
 }
-
-/* CONTENIDO INTERNO */
 
 .work-content{
     padding:25px;
@@ -152,22 +143,46 @@ body{
     opacity:0.85;
 }
 
-/* BOTÓN */
+/* BOTON ULTRA PRO */
 
 .visit-btn{
-    display:inline-block;
-    margin-top:15px;
-    padding:8px 18px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:18px;
+    padding:10px 22px;
+    border-radius:30px;
     border:2px solid #00ffff;
     color:#00ffff;
     text-decoration:none;
-    transition:0.3s;
+    font-weight:600;
+    letter-spacing:1px;
+    transition:all 0.4s ease;
+    position:relative;
+    overflow:hidden;
+}
+
+.visit-btn::before{
+    content:"";
+    position:absolute;
+    width:0%;
+    height:100%;
+    background:#00ffff;
+    left:0;
+    top:0;
+    transition:0.4s;
+    z-index:-1;
+}
+
+.visit-btn:hover::before{
+    width:100%;
 }
 
 .visit-btn:hover{
-    background:#00ffff;
     color:black;
-    box-shadow:0 0 20px #00ffff;
+    box-shadow:0 0 25px #00ffff,
+               0 0 50px #00ffff;
+    transform:scale(1.08);
 }
 
 /* FOOTER */
@@ -187,9 +202,8 @@ footer{
 <div class="navbar">
     <div class="logo">🚀 Uniiverso Studios 🚀</div>
     <div class="nav-links">
-        <a href="#plugins">PLUGINS</a>
-        <a href="https://discord.gg/K64wRgSkzp">DISCORD</a>
         <a href="#works">MY WORKS</a>
+        <a href="https://discord.gg/K64wRgSkzp" target="_blank">DISCORD</a>
     </div>
 </div>
 
@@ -206,8 +220,10 @@ footer{
             <img src="https://i.postimg.cc/gkdSRDHx/ignis.png">
             <div class="work-content">
                 <h3>Servidor 1</h3>
-                <p>Descripción del servidor aquí. Modalidad, plugins personalizados y sistemas premium.</p>
-                <a href="#" class="visit-btn">Visit Server</a>
+                <p>Descripción del servidor aquí.</p>
+                <a href="AQUI_TU_LINK_1" target="_blank" class="visit-btn">
+                    🔗 Join Now
+                </a>
             </div>
         </div>
 
@@ -215,8 +231,10 @@ footer{
             <img src="https://i.postimg.cc/YqL8KFSD/olimpo.png">
             <div class="work-content">
                 <h3>Servidor 2</h3>
-                <p>Descripción del segundo servidor. Explica lo que lo hace especial.</p>
-                <a href="#" class="visit-btn">Visit Server</a>
+                <p>Descripción del segundo servidor.</p>
+                <a href="AQUI_TU_LINK_2" target="_blank" class="visit-btn">
+                    🔗 Join Now
+                </a>
             </div>
         </div>
 
@@ -224,8 +242,10 @@ footer{
             <img src="https://i.postimg.cc/0jMGvg9F/hiyecraft.png">
             <div class="work-content">
                 <h3>Servidor 3</h3>
-                <p>Descripción del tercer servidor con información interesante.</p>
-                <a href="#" class="visit-btn">Visit Server</a>
+                <p>Descripción del tercer servidor.</p>
+                <a href="AQUI_TU_LINK_3" target="_blank" class="visit-btn">
+                    🔗 Join Now
+                </a>
             </div>
         </div>
 
