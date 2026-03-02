@@ -15,10 +15,6 @@
     scroll-behavior:smooth;
 }
 
-/* ===============================
-   🎨 PEGA TU LINK AQUÍ ABAJO
-   =============================== */
-
 body{
     font-family:'Orbitron', sans-serif;
     background: url("https://i.postimg.cc/PfKvf0mj/fondo.png") no-repeat center center fixed;
@@ -27,7 +23,7 @@ body{
     overflow-x:hidden;
 }
 
-/* Oscurecer fondo para que se vea PRO */
+/* Oscurecer fondo */
 body::after{
     content:"";
     position:fixed;
@@ -39,6 +35,52 @@ body::after{
     z-index:-1;
 }
 
+/* NAVBAR */
+
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(10px);
+    transition:0.3s;
+    z-index:1000;
+}
+
+.navbar.scrolled{
+    background:rgba(0,0,0,0.85);
+    box-shadow:0 0 20px #00ff99;
+}
+
+.logo{
+    font-size:1.2rem;
+    color:#00ff99;
+    text-shadow:0 0 10px #00ff99;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    color:#00ff99;
+    text-decoration:none;
+    border:2px solid #00ff99;
+    padding:8px 20px;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    background:#00ff99;
+    color:black;
+    box-shadow:0 0 20px #00ff99;
+}
+
 /* HERO */
 
 .hero{
@@ -48,38 +90,24 @@ body::after{
     justify-content:center;
     align-items:center;
     text-align:center;
+    padding-top:80px;
 }
 
 .hero h1{
     font-size:4rem;
     text-shadow:0 0 25px #00ff99;
+    animation:fadeIn 1.5s ease;
 }
 
 .hero p{
     margin-top:20px;
     opacity:0.8;
+    animation:fadeIn 2s ease;
 }
 
-.buttons{
-    margin-top:40px;
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-    justify-content:center;
-}
-
-.btn{
-    padding:15px 35px;
-    border:2px solid #00ff99;
-    color:#00ff99;
-    text-decoration:none;
-    transition:0.3s;
-}
-
-.btn:hover{
-    background:#00ff99;
-    color:black;
-    box-shadow:0 0 25px #00ff99;
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
 }
 
 /* SECTIONS */
@@ -126,14 +154,17 @@ footer{
 </head>
 <body>
 
-<div class="hero">
-    <h1>🚀 Universo Studios</h1>
-    <p>Minecraft Plugin Developer | Java • Spigot • Paper</p>
-
-    <div class="buttons">
-        <a href="#plugins" class="btn">Ver Plugins</a>
-        <a href="https://discord.gg/TUSERVIDOR" class="btn">Discord</a>
+<div class="navbar" id="navbar">
+    <div class="logo">🚀 Universo Studios</div>
+    <div class="nav-links">
+        <a href="#plugins">Plugins</a>
+        <a href="https://discord.gg/TUSERVIDOR">Discord</a>
     </div>
+</div>
+
+<div class="hero">
+    <h1>Minecraft Plugin Developer</h1>
+    <p>Java • Spigot • Paper • Premium Systems</p>
 </div>
 
 <div class="section" id="plugins">
@@ -162,7 +193,7 @@ footer{
     <h2>💻 Sobre Mí</h2>
     <div class="cards">
         <div class="card">
-            <p>Desarrollador especializado en plugins premium optimizados y listos para producción. Código limpio, rendimiento alto y sistemas escalables.</p>
+            <p>Desarrollador especializado en plugins premium optimizados y listos para producción.</p>
         </div>
     </div>
 </div>
@@ -170,6 +201,13 @@ footer{
 <footer>
 © 2026 Universo Studios — Minecraft Developer
 </footer>
+
+<script>
+window.addEventListener("scroll", function(){
+    const navbar = document.getElementById("navbar");
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
+});
+</script>
 
 </body>
 </html>
