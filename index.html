@@ -17,11 +17,41 @@
 
 body{
     font-family:'Orbitron', sans-serif;
-    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
-    url("https://i.postimg.cc/PfKvf0mj/fondo.png") no-repeat center center fixed;
-    background-size:cover;
+    background:#000;
     color:white;
     overflow-x:hidden;
+}
+
+/* PARTICLES BACKGROUND */
+
+#particles{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at 20% 30%, rgba(0,255,255,0.3) 2px, transparent 3px),
+    radial-gradient(circle at 70% 60%, rgba(0,255,255,0.3) 2px, transparent 3px),
+    radial-gradient(circle at 40% 80%, rgba(0,255,255,0.3) 2px, transparent 3px);
+    background-size:200px 200px;
+    animation:moveBg 20s linear infinite;
+    z-index:-2;
+}
+
+@keyframes moveBg{
+    from{background-position:0 0;}
+    to{background-position:400px 400px;}
+}
+
+/* MOUSE LIGHT EFFECT */
+
+.mouse-light{
+    position:fixed;
+    width:400px;
+    height:400px;
+    background:radial-gradient(circle, rgba(0,255,255,0.15) 0%, transparent 60%);
+    pointer-events:none;
+    transform:translate(-50%,-50%);
+    z-index:-1;
 }
 
 /* NAVBAR */
@@ -34,21 +64,21 @@ body{
     justify-content:space-between;
     align-items:center;
     padding:20px 10%;
-    background:rgba(0,0,0,0.4);
-    backdrop-filter:blur(15px);
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(20px);
     transition:0.3s;
     z-index:1000;
 }
 
 .navbar.scrolled{
-    background:rgba(0,0,0,0.9);
-    box-shadow:0 0 25px #00ff99;
+    background:rgba(0,0,0,0.95);
+    box-shadow:0 0 30px #00ffff;
 }
 
 .logo{
     font-size:1.2rem;
-    color:#00ff99;
-    text-shadow:0 0 15px #00ff99;
+    color:#00ffff;
+    text-shadow:0 0 20px #00ffff;
 }
 
 /* LINKS */
@@ -59,17 +89,17 @@ body{
 }
 
 .nav-links a{
-    color:#00ff99;
+    color:#00ffff;
     text-decoration:none;
-    border:2px solid #00ff99;
+    border:2px solid #00ffff;
     padding:8px 20px;
     transition:0.3s;
 }
 
 .nav-links a:hover{
-    background:#00ff99;
+    background:#00ffff;
     color:black;
-    box-shadow:0 0 20px #00ff99;
+    box-shadow:0 0 25px #00ffff;
 }
 
 /* HERO */
@@ -82,17 +112,22 @@ body{
     align-items:center;
     text-align:center;
     padding-top:80px;
+    animation:fadeIn 1.5s ease;
 }
 
 .hero h1{
     font-size:4rem;
-    text-shadow:0 0 30px #00ff99;
     animation:glow 2s infinite alternate;
 }
 
 @keyframes glow{
-    from{ text-shadow:0 0 10px #00ff99;}
-    to{ text-shadow:0 0 30px #00ff99, 0 0 50px #00ff99;}
+    from{ text-shadow:0 0 10px #00ffff;}
+    to{ text-shadow:0 0 40px #00ffff, 0 0 70px #00ffff;}
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
 }
 
 .hero p{
@@ -110,7 +145,7 @@ body{
     text-align:center;
     font-size:2.5rem;
     margin-bottom:60px;
-    text-shadow:0 0 15px #00ff99;
+    text-shadow:0 0 20px #00ffff;
 }
 
 /* CARDS */
@@ -122,17 +157,17 @@ body{
 }
 
 .card{
-    background:rgba(0,0,0,0.65);
+    background:rgba(0,0,0,0.7);
     padding:30px;
     border-radius:15px;
-    border:1px solid rgba(0,255,153,0.4);
-    backdrop-filter:blur(12px);
+    border:1px solid rgba(0,255,255,0.5);
+    backdrop-filter:blur(15px);
     transition:0.4s;
 }
 
 .card:hover{
-    transform:translateY(-12px) scale(1.03);
-    box-shadow:0 0 30px #00ff99;
+    transform:translateY(-12px) scale(1.05);
+    box-shadow:0 0 40px #00ffff;
 }
 
 /* FOOTER */
@@ -140,13 +175,16 @@ body{
 footer{
     text-align:center;
     padding:50px;
-    background:rgba(0,0,0,0.8);
+    background:rgba(0,0,0,0.9);
     font-size:0.9rem;
     opacity:0.8;
 }
 </style>
 </head>
 <body>
+
+<div id="particles"></div>
+<div class="mouse-light" id="mouseLight"></div>
 
 <div class="navbar" id="navbar">
     <div class="logo">🚀 Uniiverso Studios 🚀</div>
@@ -203,6 +241,12 @@ footer{
 window.addEventListener("scroll", function(){
     const navbar = document.getElementById("navbar");
     navbar.classList.toggle("scrolled", window.scrollY > 50);
+});
+
+const mouseLight = document.getElementById("mouseLight");
+document.addEventListener("mousemove", e=>{
+    mouseLight.style.left = e.clientX + "px";
+    mouseLight.style.top = e.clientY + "px";
 });
 </script>
 
