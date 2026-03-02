@@ -1,10 +1,175 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Universo Portafolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Universo Studios | Minecraft Developer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Orbitron', sans-serif;
+    background:#0a0f1f;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Fondo animado */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:200%;
+    height:200%;
+    background:radial-gradient(circle,#00ff99 1px,transparent 1px);
+    background-size:50px 50px;
+    animation:moveBg 40s linear infinite;
+    opacity:0.08;
+    z-index:-1;
+}
+
+@keyframes moveBg{
+    from{transform:translate(0,0);}
+    to{transform:translate(-500px,-500px);}
+}
+
+/* HERO */
+
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:4rem;
+    text-shadow:0 0 25px #00ff99;
+}
+
+.hero p{
+    margin-top:20px;
+    opacity:0.7;
+}
+
+.buttons{
+    margin-top:40px;
+    display:flex;
+    gap:20px;
+}
+
+.btn{
+    padding:15px 35px;
+    border:2px solid #00ff99;
+    color:#00ff99;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#00ff99;
+    color:black;
+    box-shadow:0 0 25px #00ff99;
+}
+
+/* SECTIONS */
+
+.section{
+    padding:100px 10%;
+}
+
+.section h2{
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:60px;
+    text-shadow:0 0 15px #00ff99;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:rgba(255,255,255,0.05);
+    padding:30px;
+    border-radius:15px;
+    border:1px solid rgba(0,255,153,0.2);
+    backdrop-filter:blur(10px);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px #00ff99;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:40px;
+    opacity:0.5;
+}
+</style>
 </head>
-<body style="background:black;color:white;text-align:center;padding:50px;font-family:Arial;">
-  <h1>🚀 Universo Studios</h1>
-  <p>Desarrollador de Plugins Minecraft</p>
+<body>
+
+<div class="hero">
+    <h1>🚀 Universo Studios</h1>
+    <p>Minecraft Plugin Developer | Java • Spigot • Paper</p>
+
+    <div class="buttons">
+        <a href="#plugins" class="btn">Ver Plugins</a>
+        <a href="https://discord.gg/TUSERVIDOR" class="btn">Discord</a>
+    </div>
+</div>
+
+<div class="section" id="plugins">
+    <h2>🔥 Plugins Destacados</h2>
+    <div class="cards">
+
+        <div class="card">
+            <h3>⚔️ UltimateKoth</h3>
+            <p>Sistema avanzado de KOTH competitivo con recompensas dinámicas.</p>
+        </div>
+
+        <div class="card">
+            <h3>📢 AutoBroadcast Pro</h3>
+            <p>Mensajes automáticos editables en tiempo real con animaciones.</p>
+        </div>
+
+        <div class="card">
+            <h3>🏹 PvP Core</h3>
+            <p>Optimización PvP, eventos automáticos y estadísticas avanzadas.</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="section">
+    <h2>💻 Sobre Mí</h2>
+    <div class="cards">
+        <div class="card">
+            <p>Desarrollador especializado en plugins premium optimizados y listos para producción. Código limpio, rendimiento alto y sistemas escalables.</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+© 2026 Universo Studios — Minecraft Developer
+</footer>
+
 </body>
 </html>
