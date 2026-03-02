@@ -70,20 +70,29 @@ body{
     box-shadow:0 0 25px #00ffff;
 }
 
+/* MOBILE MENU */
+
+.menu-toggle{
+    display:none;
+    font-size:1.8rem;
+    cursor:pointer;
+    color:#00ffff;
+}
+
 /* HERO */
 
 .hero{
-    height:100vh;
+    min-height:100vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding-top:80px;
+    padding:120px 20px 40px 20px;
 }
 
 .hero h1{
-    font-size:4rem;
+    font-size:clamp(2rem, 5vw, 4rem);
     animation:glow 2s infinite alternate;
 }
 
@@ -95,6 +104,7 @@ body{
 .hero p{
     margin-top:20px;
     opacity:0.85;
+    font-size:clamp(0.9rem, 2vw, 1.2rem);
 }
 
 /* SECTIONS */
@@ -105,7 +115,7 @@ body{
 
 .section h2{
     text-align:center;
-    font-size:2.5rem;
+    font-size:clamp(1.8rem,4vw,2.5rem);
     margin-bottom:60px;
     text-shadow:0 0 20px #00ffff;
 }
@@ -173,10 +183,44 @@ body{
 
 footer{
     text-align:center;
-    padding:50px;
+    padding:50px 20px;
     background:rgba(0,0,0,0.9);
     font-size:0.9rem;
     opacity:0.8;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .nav-links{
+        position:absolute;
+        top:80px;
+        right:0;
+        background:rgba(0,0,0,0.95);
+        flex-direction:column;
+        width:100%;
+        text-align:center;
+        display:none;
+        padding:20px 0;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .section{
+        padding:80px 5%;
+    }
+
+    .card:hover{
+        transform:none;
+    }
+
 }
 </style>
 </head>
@@ -184,7 +228,8 @@ footer{
 
 <div class="navbar" id="navbar">
     <div class="logo">🚀 Uniiverso Studios 🚀</div>
-    <div class="nav-links">
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+    <div class="nav-links" id="nav-links">
         <a href="#plugins">PLUGINS</a>
         <a href="https://discord.gg/K64wRgSkzp">DISCORD</a>
         <a href="#works">MY WORKS</a>
@@ -195,8 +240,6 @@ footer{
     <h1>Minecraft Plugin Developer</h1>
     <p>Plugins • Setups • Configs • Premium Systems</p>
 </div>
-
-<!-- PLUGINS -->
 
 <div class="section" id="plugins">
     <h2>🔥 Featured Plugins</h2>
@@ -215,8 +258,6 @@ footer{
         </div>
     </div>
 </div>
-
-<!-- MY WORKS -->
 
 <div class="section" id="works">
     <h2>🌊 My Works</h2>
@@ -246,8 +287,6 @@ footer{
     </div>
 </div>
 
-<!-- ABOUT -->
-
 <div class="section">
     <h2>💻 About Me</h2>
     <div class="cards">
@@ -267,6 +306,13 @@ footer{
 window.addEventListener("scroll", function(){
     const navbar = document.getElementById("navbar");
     navbar.classList.toggle("scrolled", window.scrollY > 50);
+});
+
+const toggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+toggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
 });
 </script>
 
