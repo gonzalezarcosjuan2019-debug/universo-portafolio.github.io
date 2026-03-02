@@ -36,7 +36,13 @@ body{
     padding:20px 10%;
     background:rgba(0,0,0,0.6);
     backdrop-filter:blur(20px);
+    transition:0.3s;
     z-index:1000;
+}
+
+.navbar.scrolled{
+    background:rgba(0,0,0,0.95);
+    box-shadow:0 0 30px #00ffff;
 }
 
 .logo{
@@ -64,6 +70,15 @@ body{
     box-shadow:0 0 25px #00ffff;
 }
 
+/* MOBILE MENU */
+
+.menu-toggle{
+    display:none;
+    font-size:1.8rem;
+    cursor:pointer;
+    color:#00ffff;
+}
+
 /* HERO */
 
 .hero{
@@ -89,6 +104,7 @@ body{
 .hero p{
     margin-top:20px;
     opacity:0.85;
+    font-size:clamp(0.9rem, 2vw, 1.2rem);
 }
 
 /* SECTIONS */
@@ -99,101 +115,68 @@ body{
 
 .section h2{
     text-align:center;
+    font-size:clamp(1.8rem,4vw,2.5rem);
     margin-bottom:60px;
     text-shadow:0 0 20px #00ffff;
 }
 
-/* GRID */
+/* CARDS */
 
 .cards{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:40px;
+    gap:30px;
 }
 
-/* PLUGIN CARD */
-
 .card{
-    background:rgba(0,0,0,0.6);
+    background:rgba(0,0,0,0.7);
     padding:30px;
     border-radius:15px;
-    backdrop-filter:blur(20px);
+    border:1px solid rgba(0,255,255,0.5);
+    backdrop-filter:blur(15px);
     transition:0.4s;
-    border:1px solid rgba(0,255,255,0.3);
 }
 
 .card:hover{
-    transform:translateY(-10px) scale(1.03);
+    transform:translateY(-12px) scale(1.05);
     box-shadow:0 0 40px #00ffff;
 }
 
-/* WORK CARD */
-
-.work-card{
-    background:rgba(0,0,0,0.6);
-    border-radius:15px;
-    overflow:hidden;
-    backdrop-filter:blur(20px);
-    transition:0.4s;
-    border:1px solid rgba(0,255,255,0.3);
-}
-
-.work-card:hover{
-    transform:translateY(-10px) scale(1.03);
-    box-shadow:0 0 40px #00ffff;
-}
+/* WORKS IMAGES */
 
 .work-card img{
     width:100%;
-    height:auto;
-    display:block;
+    height:180px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:15px;
+    border:1px solid rgba(0,255,255,0.5);
+    transition:0.4s;
 }
 
-.work-content{
-    padding:25px;
+.work-card img:hover{
+    transform:scale(1.05);
 }
 
-.work-content h3{
+.work-card h3{
     margin-bottom:10px;
     color:#00ffff;
 }
 
-/* BOTON PRO */
-
 .visit-btn{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    margin-top:18px;
-    padding:10px 22px;
-    border-radius:30px;
+    display:inline-block;
+    margin-top:15px;
+    padding:8px 18px;
     border:2px solid #00ffff;
     color:#00ffff;
     text-decoration:none;
-    transition:all 0.4s ease;
-    position:relative;
-    overflow:hidden;
-}
-
-.visit-btn::before{
-    content:"";
-    position:absolute;
-    width:0%;
-    height:100%;
-    background:#00ffff;
-    left:0;
-    top:0;
-    transition:0.4s;
-    z-index:-1;
-}
-
-.visit-btn:hover::before{
-    width:100%;
+    transition:0.3s;
 }
 
 .visit-btn:hover{
+    background:#00ffff;
     color:black;
-    box-shadow:0 0 25px #00ffff;
+    box-shadow:0 0 20px #00ffff;
 }
 
 /* FOOTER */
@@ -206,16 +189,50 @@ footer{
     opacity:0.8;
 }
 
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .nav-links{
+        position:absolute;
+        top:80px;
+        right:0;
+        background:rgba(0,0,0,0.95);
+        flex-direction:column;
+        width:100%;
+        text-align:center;
+        display:none;
+        padding:20px 0;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .section{
+        padding:80px 5%;
+    }
+
+    .card:hover{
+        transform:none;
+    }
+
+}
 </style>
 </head>
 <body>
 
-<div class="navbar">
+<div class="navbar" id="navbar">
     <div class="logo">🚀 Uniiverso Studios 🚀</div>
-    <div class="nav-links">
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+    <div class="nav-links" id="nav-links">
         <a href="#plugins">PLUGINS</a>
+        <a href="https://discord.gg/K64wRgSkzp">DISCORD</a>
         <a href="#works">MY WORKS</a>
-        <a href="https://discord.gg/K64wRgSkzp" target="_blank">DISCORD</a>
     </div>
 </div>
 
@@ -223,8 +240,6 @@ footer{
     <h1>Minecraft Plugin Developer</h1>
     <p>Plugins • Setups • Configs • Premium Systems</p>
 </div>
-
-<!-- PLUGINS -->
 
 <div class="section" id="plugins">
     <h2>🔥 Featured Plugins</h2>
@@ -235,54 +250,71 @@ footer{
         </div>
         <div class="card">
             <h3>📢 ArcosBroadcast Pro</h3>
-            <p>Editable automated messages with animations.</p>
+            <p>Real-time editable automated messages with animations.</p>
         </div>
         <div class="card">
             <h3>🏹 ArcosCore</h3>
-            <p>PvP optimization and advanced systems.</p>
+            <p>PvP optimization, automated events, and advanced statistics.</p>
         </div>
     </div>
 </div>
-
-<!-- WORKS -->
 
 <div class="section" id="works">
     <h2>🌊 My Works</h2>
     <div class="cards">
 
-        <div class="work-card">
-            <img src="https://i.postimg.cc/gkdSRDHx/ignis.png">
-            <div class="work-content">
-                <h3>Servidor 1</h3>
-                <p>Descripción del servidor aquí.</p>
-                <a href="AQUI_TU_LINK_1" target="_blank" class="visit-btn">🔗 Join Now</a>
-            </div>
+        <div class="card work-card">
+            <img src="https://i.postimg.cc/gkdSRDHx/ignis.png" alt="Servidor 1">
+            <h3>Nombre del Servidor 1</h3>
+            <p>Aquí va la descripción del servidor. Modalidad, plugins personalizados, eventos, etc.</p>
+            <a href="#" class="visit-btn">Visit Server</a>
         </div>
 
-        <div class="work-card">
-            <img src="https://i.postimg.cc/YqL8KFSD/olimpo.png">
-            <div class="work-content">
-                <h3>Servidor 2</h3>
-                <p>Descripción del segundo servidor.</p>
-                <a href="AQUI_TU_LINK_2" target="_blank" class="visit-btn">🔗 Join Now</a>
-            </div>
+        <div class="card work-card">
+            <img src="PON_AQUI_TU_IMAGEN_2" alt="Servidor 2">
+            <h3>Nombre del Servidor 2</h3>
+            <p>Aquí va la descripción del segundo servidor. Explica qué lo hace especial.</p>
+            <a href="#" class="visit-btn">Visit Server</a>
         </div>
 
-        <div class="work-card">
-            <img src="https://i.postimg.cc/0jMGvg9F/hiyecraft.png">
-            <div class="work-content">
-                <h3>Servidor 3</h3>
-                <p>Descripción del tercer servidor.</p>
-                <a href="AQUI_TU_LINK_3" target="_blank" class="visit-btn">🔗 Join Now</a>
-            </div>
+        <div class="card work-card">
+            <img src="PON_AQUI_TU_IMAGEN_3" alt="Servidor 3">
+            <h3>Nombre del Servidor 3</h3>
+            <p>Aquí va la descripción del tercer servidor. Información interesante aquí.</p>
+            <a href="#" class="visit-btn">Visit Server</a>
         </div>
 
+    </div>
+</div>
+
+<div class="section">
+    <h2>💻 About Me</h2>
+    <div class="cards">
+        <div class="card">
+            <p>I started from the very bottom, but I learned that I must not give up.</p>
+            <p>Proud to represent Ecuador 🇪🇨</p>
+            <p>I'm not perfect yet — but I always give my best.</p>
+        </div>
     </div>
 </div>
 
 <footer>
 © 2026 Uniiverso Studios — Not affiliated with Mojang or Minecraft.
 </footer>
+
+<script>
+window.addEventListener("scroll", function(){
+    const navbar = document.getElementById("navbar");
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
+});
+
+const toggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+toggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
+</script>
 
 </body>
 </html>
