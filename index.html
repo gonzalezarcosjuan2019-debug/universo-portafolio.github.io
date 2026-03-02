@@ -36,7 +36,6 @@ body{
     padding:20px 10%;
     background:rgba(0,0,0,0.6);
     backdrop-filter:blur(20px);
-    transition:0.3s;
     z-index:1000;
 }
 
@@ -87,6 +86,11 @@ body{
     to{ text-shadow:0 0 40px #00ffff, 0 0 70px #00ffff;}
 }
 
+.hero p{
+    margin-top:20px;
+    opacity:0.85;
+}
+
 /* SECTIONS */
 
 .section{
@@ -95,7 +99,6 @@ body{
 
 .section h2{
     text-align:center;
-    font-size:clamp(1.8rem,4vw,2.5rem);
     margin-bottom:60px;
     text-shadow:0 0 20px #00ffff;
 }
@@ -106,6 +109,22 @@ body{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:40px;
+}
+
+/* PLUGIN CARD */
+
+.card{
+    background:rgba(0,0,0,0.6);
+    padding:30px;
+    border-radius:15px;
+    backdrop-filter:blur(20px);
+    transition:0.4s;
+    border:1px solid rgba(0,255,255,0.3);
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 0 40px #00ffff;
 }
 
 /* WORK CARD */
@@ -139,11 +158,7 @@ body{
     color:#00ffff;
 }
 
-.work-content p{
-    opacity:0.85;
-}
-
-/* BOTON ULTRA PRO */
+/* BOTON PRO */
 
 .visit-btn{
     display:inline-flex;
@@ -155,8 +170,6 @@ body{
     border:2px solid #00ffff;
     color:#00ffff;
     text-decoration:none;
-    font-weight:600;
-    letter-spacing:1px;
     transition:all 0.4s ease;
     position:relative;
     overflow:hidden;
@@ -180,9 +193,7 @@ body{
 
 .visit-btn:hover{
     color:black;
-    box-shadow:0 0 25px #00ffff,
-               0 0 50px #00ffff;
-    transform:scale(1.08);
+    box-shadow:0 0 25px #00ffff;
 }
 
 /* FOOTER */
@@ -202,6 +213,7 @@ footer{
 <div class="navbar">
     <div class="logo">🚀 Uniiverso Studios 🚀</div>
     <div class="nav-links">
+        <a href="#plugins">PLUGINS</a>
         <a href="#works">MY WORKS</a>
         <a href="https://discord.gg/K64wRgSkzp" target="_blank">DISCORD</a>
     </div>
@@ -212,6 +224,28 @@ footer{
     <p>Plugins • Setups • Configs • Premium Systems</p>
 </div>
 
+<!-- PLUGINS -->
+
+<div class="section" id="plugins">
+    <h2>🔥 Featured Plugins</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>⚔️ ArcosKoth</h3>
+            <p>Advanced competitive KOTH system with dynamic rewards.</p>
+        </div>
+        <div class="card">
+            <h3>📢 ArcosBroadcast Pro</h3>
+            <p>Editable automated messages with animations.</p>
+        </div>
+        <div class="card">
+            <h3>🏹 ArcosCore</h3>
+            <p>PvP optimization and advanced systems.</p>
+        </div>
+    </div>
+</div>
+
+<!-- WORKS -->
+
 <div class="section" id="works">
     <h2>🌊 My Works</h2>
     <div class="cards">
@@ -221,9 +255,7 @@ footer{
             <div class="work-content">
                 <h3>Servidor 1</h3>
                 <p>Descripción del servidor aquí.</p>
-                <a href="https://store.ignismc.com" target="_blank" class="visit-btn">
-                    🔗 Join Now
-                </a>
+                <a href="AQUI_TU_LINK_1" target="_blank" class="visit-btn">🔗 Join Now</a>
             </div>
         </div>
 
@@ -232,9 +264,7 @@ footer{
             <div class="work-content">
                 <h3>Servidor 2</h3>
                 <p>Descripción del segundo servidor.</p>
-                <a href="olimpocraft.tebex.io" target="_blank" class="visit-btn">
-                    🔗 Join Now
-                </a>
+                <a href="AQUI_TU_LINK_2" target="_blank" class="visit-btn">🔗 Join Now</a>
             </div>
         </div>
 
@@ -243,9 +273,7 @@ footer{
             <div class="work-content">
                 <h3>Servidor 3</h3>
                 <p>Descripción del tercer servidor.</p>
-                <a href="tienda.hiyecraft.net" target="_blank" class="visit-btn">
-                    🔗 Join Now
-                </a>
+                <a href="AQUI_TU_LINK_3" target="_blank" class="visit-btn">🔗 Join Now</a>
             </div>
         </div>
 
